@@ -5,16 +5,14 @@ import ReactDOM from "react-dom";
 
 import "./index.css";
 
-export class Extension extends React.Component {
-   render() {
-      return (
-         <div>
-            <h1 className="extension-header">Extension is working</h1>
-            <button>This button has problems with styles</button>
-         </div>
-      );
-   }
-}
+const Extension = () => {
+   return (
+      <div>
+         <h1 className="extension-header">Extension is working</h1>
+         <button>This button has problems with styles</button>
+      </div>
+   );
+};
 // Add our extension to the document
 let extensionRoot = document.getElementById("extension-host");
 if (extensionRoot) {

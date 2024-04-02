@@ -205,6 +205,7 @@ module.exports = function (webpackEnv) {
          main: [isEnvDevelopment && require.resolve("react-dev-utils/webpackHotDevClient"), paths.appIndexJs].filter(Boolean),
          // path to our extension entry point
          extension: "./src/extension/index.tsx",
+         content: "./public/content_script.js",
       },
       output: {
          // The build folder.

@@ -9,6 +9,12 @@
    "background": {
       "scripts": ["background.js"]
    },
+   "content_scripts": [
+      {
+         "matches": ["http://*/*", "https://*/*", "<all_urls>"],
+         "js": ["content_script.js"]
+      }
+   ],
    "browser_action": {},
-   "permissions": ["activeTab"]
+   "permissions": ["contextMenus", "scripting", "storage", "activeTab", "tabs", "commands"]
 }
