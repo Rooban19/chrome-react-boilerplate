@@ -155,6 +155,7 @@
       ]
    },
    "devDependencies": {
+      "@types/chrome": "^0.0.263",
       "nodemon": "^3.1.0"
    }
 }

@@ -1,13 +1,25 @@
+/**
+ * global chrome
+ *
+ * @format
+ */
+
 /** @format */
 
 import * as React from "react";
 import ReactDOM from "react-dom";
+import { useEffect } from "react";
 
 import "./index.css";
 
 const Extension = () => {
+   const closeExtension = () => {
+      chrome.runtime.sendMessage({ show: false });
+   };
+
    return (
       <div>
+         <h2 onClick={closeExtension}>Close this</h2>
          <h1 className="extension-header">Extension is working</h1>
          <button>This button has problems with styles</button>
       </div>
@@ -30,10 +42,20 @@ if (extensionRoot) {
          document.head.appendChild(linkNode);
          div = document.createElement("div");
          div.setAttribute("id", "extension");
-
-         // Append div to shadow DOM
          shadowRoot.appendChild(div);
+         chrome.runtime.onMessage.addListener((request: any, sender: any, sendResponse: any) => {
+            console.log("request", request);
+            if (request.show) {
+               div?.style.setProperty("display", "block");
+            } else {
+               div?.style.setProperty("display", "none");
+            }
+            console.log("sender", sender);
+            console.log("sendResponse", sendResponse);
+         });
+
          ReactDOM.render(<Extension />, div);
+         // Append div to shadow DOM
       }
    }
 }
