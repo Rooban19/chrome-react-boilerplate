@@ -1,5 +1,4 @@
 /** @format */
-/* @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap"); */
 
 #extension {
    position: fixed;
@@ -15,15 +14,13 @@
    text-align: center;
    padding: 20px 0;
    color: #06d6a0;
-
    width: 360px;
    height: 600px;
 }
 
-h1 {
-   color: red;
-   /* font-family: "Inter", sans-serif; */
-   font-size: 2rem;
+.extension-header {
+   font-family: "Inter", sans-serif;
+   font-size: 30px;
 }
 
 button {

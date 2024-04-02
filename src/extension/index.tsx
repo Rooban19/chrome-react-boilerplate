@@ -9,7 +9,7 @@ export class Extension extends React.Component {
    render() {
       return (
          <div>
-            <h1>Extension is working</h1>
+            <h1 className="extension-header">Extension is working</h1>
             <button>This button has problems with styles</button>
          </div>
       );
@@ -25,6 +25,11 @@ if (extensionRoot) {
       let div = shadowRoot.getElementById("extension");
       if (!div) {
          // Create a div element
+         var linkNode = document.createElement("link");
+         linkNode.type = "text/css";
+         linkNode.rel = "stylesheet";
+         linkNode.href = "//fonts.googleapis.com/css?family=Inter";
+         document.head.appendChild(linkNode);
          div = document.createElement("div");
          div.setAttribute("id", "extension");
 
